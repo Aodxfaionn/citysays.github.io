@@ -16,6 +16,25 @@ const slideClick = (side) => {
 btnPrev.addEventListener("click", () => slideClick("right"));
 btnNext.addEventListener("click", () => slideClick("left"));
 
+// Табы
+    let tabNav = document.querySelectorAll(".video__title .title-three");
+    let tabContent = document.querySelectorAll(".video__list");
+    let tabName;
+    tabNav.forEach((item) => item.addEventListener("click", selectTabNav));
+    function selectTabNav() {
+      tabNav.forEach((item) => item.classList.remove("active"));
+      this.classList.add("active");
+      tabName = this.dataset.name;
+      selectTabContent(tabName);
+    }
+    function selectTabContent(selectName) {
+      tabContent.forEach((item) => {
+        item.classList.contains(selectName)
+          ? item.classList.add("active")
+          : item.classList.remove("active");
+      });
+    };
+
 // скрипт для маски телефона, запускается при загрузке документа
 window.addEventListener("DOMContentLoaded", function () {
   [].forEach.call(document.querySelectorAll(".tel"), function (input) {
