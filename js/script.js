@@ -153,3 +153,4 @@ function checkFullField(forma) {
       input.nextElementSibling.innerHTML = "Поле, обязательное для заполнения";
   }
 }
+
