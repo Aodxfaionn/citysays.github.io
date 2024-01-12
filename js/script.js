@@ -17,25 +17,25 @@ btnPrev.addEventListener("click", () => slideClick("right"));
 btnNext.addEventListener("click", () => slideClick("left"));
 
 // Табы
-    let tabNav = document.querySelectorAll(".video__title .title-three");
-    let tabContent = document.querySelectorAll(".video__list");
-    let tabName;
-    tabNav.forEach((item) => item.addEventListener("click", selectTabNav));
-    function selectTabNav() {
-      tabNav.forEach((item) => item.classList.remove("active"));
-      this.classList.add("active");
-      tabName = this.dataset.name;
-      selectTabContent(tabName);
-    }
-    function selectTabContent(selectName) {
-      tabContent.forEach((item) => {
-        item.classList.contains(selectName)
-          ? item.classList.add("active")
-          : item.classList.remove("active");
-      });
-    };
+let tabNav = document.querySelectorAll(".video__title .title-three");
+let tabContent = document.querySelectorAll(".video__list");
+let tabName;
+tabNav.forEach((item) => item.addEventListener("click", selectTabNav));
+function selectTabNav() {
+  tabNav.forEach((item) => item.classList.remove("active"));
+  this.classList.add("active");
+  tabName = this.dataset.name;
+  selectTabContent(tabName);
+}
+function selectTabContent(selectName) {
+  tabContent.forEach((item) => {
+    item.classList.contains(selectName)
+      ? item.classList.add("active")
+      : item.classList.remove("active");
+  });
+}
 
-// скрипт для маски телефона, запускается при загрузке документа
+// Маска телефона
 window.addEventListener("DOMContentLoaded", function () {
   [].forEach.call(document.querySelectorAll(".tel"), function (input) {
     var keyCode;
@@ -76,3 +76,80 @@ window.addEventListener("DOMContentLoaded", function () {
     input.addEventListener("keydown", mask, false);
   });
 });
+
+// Валидация и отправка формы
+const form = document.querySelector(".forma");
+checkForm(form);
+
+function checkForm(forma) {
+  const errorField = forma.querySelectorAll(".forma__error"),
+    btn = forma.querySelector("#forma");
+  forma.addEventListener("click", () => checkFormField(forma));
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    checkFullField(forma);
+    console.log(errorField)
+    for (error of errorField) {
+      if (error.textContent != "") return false;
+      else btn.textContent = "Заявка отправлена";
+    }
+  });
+}
+
+function checkFormField(forma) {
+  const emailInput = forma.querySelector(".email");
+  const telInput = forma.querySelector(".tel");
+  const name = forma.querySelector(".name");
+  const text = forma.querySelector(".textarea");
+
+  const validateEmail = () => {
+    const pattern = /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/;
+    if (emailInput.value.match(pattern))
+      emailInput.nextElementSibling.innerHTML = "";
+    else
+      emailInput.nextElementSibling.innerHTML = "Вы ввели некорректный e-mail";
+  };
+  const validateTel = () => {
+    const telInputValue = telInput.value;
+    if (telInputValue.length < 17)
+      telInput.nextElementSibling.innerHTML =
+        "Вы ввели некорректный номер телефона";
+    else if (telInputValue.length < 4)
+      telInput.nextElementSibling.innerHTML =
+        "Поле, обязательное для заполнения";
+    else telInput.nextElementSibling.innerHTML = "";
+  };
+  const validateTextarea = () => {
+    if (area.value.length >= 1000)
+      area.nextElementSibling.innerHTML =
+        "Число символов не должно превышать 1000";
+    else area.nextElementSibling.innerHTML = "";
+  };
+  const validateText = () => {
+    const patternLetter = /^[a-zA-ZА-Яа-яЁё]{3,20}$/u;
+    if (name.value.length == 0)
+      name.nextElementSibling.innerHTML = "Поле, обязательное для заполнения";
+    else if (name.value.match(patternLetter) && name.value.length >= 3)
+      name.nextElementSibling.innerHTML = "";
+    else if (name.value.length >= 30)
+      name.nextElementSibling.innerHTML =
+        "Число символов не должно превышать 30";
+    else if (name.value.length < 3)
+      name.nextElementSibling.innerHTML =
+        "Число символов не должно быть меньше 3";
+    else
+      name.nextElementSibling.innerHTML = "Поле может содержать только буквы";
+  };
+  emailInput.addEventListener("change", validateEmail);
+  telInput.addEventListener("change", validateTel);
+  name.addEventListener("change", validateText);
+  text.addEventListener("change", validateTextarea);
+}
+
+function checkFullField(forma) {
+  const inputRequired = forma.querySelectorAll("[required]");
+  for (input of inputRequired) {
+    if (!input.value)
+      input.nextElementSibling.innerHTML = "Поле, обязательное для заполнения";
+  }
+}

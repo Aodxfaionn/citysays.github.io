@@ -218,6 +218,11 @@ section {
 
 .mainScreen {
   position: relative;
+  overflow: hidden;
+}
+
+.mainScreen__container {
+  margin-bottom: 240px;
 }
 
 .mainScreen__title {
@@ -252,7 +257,6 @@ section {
 .about__container {
   display: flex;
   gap: 60px;
-  padding-top: 240px;
 }
 
 .about__img {
@@ -501,11 +505,11 @@ section.container {
   mask-repeat: no-repeat;
   -webkit-mask-size: contain;
   mask-size: contain;
-  -webkit-mask-position: 0 -30px;
 }
 
 .forma {
-  width: 400px;
+  min-width: 350px;
+  width: 45%;
   margin-top: 60px;
   display: flex;
   gap: 30px;
@@ -566,22 +570,42 @@ section.container {
   padding: 5px;
   background-color: transparent;
   border: 1px solid #000;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
+  resize: none;
 }
 
-.forma__field label {
+.forma__error {
   position: absolute;
-  bottom: 15px;
-  transition: 0.3s;
-}
-
-.input:focus + label, .input:valid + label {
-  transform: translateY(-30px);
+  bottom: -30px;
+  color: rgb(207, 0, 0);
+  font-size: 14px;
 }
 
 .btn {
+  height: 70px;
+  background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='240' height='65' viewBox='0 0 240 65' fill='none'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M122.172 0.874367C114.894 1.7552 108.45 2.14925 101.064 2.27674C85.736 2.96054 60.1476 8.14119 52.4834 9.93762C41.8834 12.4178 31.7469 14.817 22.7384 18.1896C14.7807 21.1218 6.12758 27.7976 3.29988 34.1256C0.441267 39.5265 -0.887602 39.4222 0.642141 46.5847C2.82086 56.8069 25.3653 63.587 38.7466 64.1086C52.5298 64.6417 65.8802 63.2973 78.6281 64.0738C90.1244 64.7808 106.519 65.2212 118.201 64.8851C131.736 64.0854 141.734 65.3719 158.685 64.6533C175.125 63.9579 178.231 62.4628 193.05 60.0173C204.067 58.2093 226.333 50.3514 231.85 43.7452C239.962 33.6736 245.648 20.7046 230.675 10.8185C226.905 8.32664 223.49 6.77359 218.901 4.8265C201.208 -2.64895 182.125 0.885957 163.104 0.526672C151.685 0.318055 132.633 -0.388925 122.172 0.874367Z' fill='black'/%3e%3c/svg%3e") center/contain no-repeat;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
 
+.btn:hover {
+  background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='240' height='65' viewBox='0 0 240 65' fill='none'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M122.172 0.874367C114.894 1.7552 108.45 2.14925 101.064 2.27674C85.736 2.96054 60.1476 8.14119 52.4834 9.93762C41.8834 12.4178 31.7469 14.817 22.7384 18.1896C14.7807 21.1218 6.12758 27.7976 3.29988 34.1256C0.441267 39.5265 -0.887602 39.4222 0.642141 46.5847C2.82086 56.8069 25.3653 63.587 38.7466 64.1086C52.5298 64.6417 65.8802 63.2973 78.6281 64.0738C90.1244 64.7808 106.519 65.2212 118.201 64.8851C131.736 64.0854 141.734 65.3719 158.685 64.6533C175.125 63.9579 178.231 62.4628 193.05 60.0173C204.067 58.2093 226.333 50.3514 231.85 43.7452C239.962 33.6736 245.648 20.7046 230.675 10.8185C226.905 8.32664 223.49 6.77359 218.901 4.8265C201.208 -2.64895 182.125 0.885957 163.104 0.526672C151.685 0.318055 132.633 -0.388925 122.172 0.874367Z' fill='%238CD2FF'/%3e%3c/svg%3e") center/contain no-repeat;
+}
+
+.forma__btn {
+  margin-top: 30px;
 }
 
 @media (max-width: 1920px) {
+
 }
