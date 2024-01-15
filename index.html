@@ -61,11 +61,20 @@
           </nav>
         </div>
       </div>
-      <div class="mobileMenu">
-        <span class="mobileMenu__burger"></span>
-        <span class="mobileMenu__burger"></span>
-        <span class="mobileMenu__burger"></span>
-      </div>
+      <svg class="mobileMenu mobileMenuRotate" viewBox="0 0 100 100" width="60">
+        <path
+          class="mobileMenu__line mobileMenu__line-top"
+          d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"
+        />
+        <path
+          class="mobileMenu__line mobileMenu__line-middle"
+          d="m 70,50 h -40"
+        />
+        <path
+          class="mobileMenu__line mobileMenu__line-bottom"
+          d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"
+        />
+      </svg>
     </header>
     <main>
       <section class="mainScreen">
@@ -79,6 +88,7 @@
             ARKA. Целью проекта стало исследование городского ландшафта и
             создание художественных арт-интервенций.
           </p>
+          <p class="empty"></p>
         </div>
         <img
           src="./css/images/main.jpg"
@@ -240,58 +250,36 @@
           </div>
         </div>
         <div class="slider">
-          <svg
-            class="arrow arrow-left"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 320 512"
-          >
-            <path
-              d="M34.52 239.03 228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
-            />
-          </svg>
-          <div class="sliderContainer">
-            <div class="sliderBlock">
-              <img
-                class="slider__photo"
-                src="./css/images/gallery-1.jpg"
-                alt="Галерея"
-              />
-              <img
-                class="slider__photo"
-                src="./css/images/gallery-2.jpg"
-                alt="Галерея"
-              />
-              <img
-                class="slider__photo"
-                src="./css/images/gallery-3.jpg"
-                alt="Галерея"
-              />
-              <img
-                class="slider__photo"
-                src="./css/images/gallery-4.jpg"
-                alt="Галерея"
-              />
-              <img
-                class="slider__photo"
-                src="./css/images/gallery-5.jpg"
-                alt="Галерея"
-              />
-              <img
-                class="slider__photo"
-                src="./css/images/gallery-6.jpg"
-                alt="Галерея"
-              />
-            </div>
-          </div>
-          <svg
-            class="arrow arrow-right"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 320 512"
-          >
-            <path
-              d="M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
-            />
-          </svg>
+          <img
+            class="slider__photo active"
+            src="./css/images/gallery-2.jpg"
+            alt="Галерея"
+          />
+          <img
+            class="slider__photo"
+            src="./css/images/gallery-1.jpg"
+            alt="Галерея"
+          />
+          <img
+            class="slider__photo"
+            src="./css/images/gallery-3.jpg"
+            alt="Галерея"
+          />
+          <img
+            class="slider__photo"
+            src="./css/images/gallery-4.jpg"
+            alt="Галерея"
+          />
+          <img
+            class="slider__photo"
+            src="./css/images/gallery-5.jpg"
+            alt="Галерея"
+          />
+          <img
+            class="slider__photo"
+            src="./css/images/gallery-6.jpg"
+            alt="Галерея"
+          />
         </div>
       </section>
       <section id="video" class="videoContainer container">
@@ -362,7 +350,6 @@
               Видеосюжеты
             </button>
             <button class="title-three" data-name="interview">Интервью</button>
-            <span class="glider"></span>
           </div>
           <div class="video__list video active">
             <img src="./css/images/video-1.jpg" alt="Видеосюжет" />
@@ -543,8 +530,7 @@
                   Проходим по маршруту карнавального шествия, которое почти 30
                   лет открывало фестиваль уличных театров. Узнаем о секретах
                   обратной стороны фестиваля, обсуждаем опыты появления
-                  фестивальных паблик-арт объектов, которые с 1990 года являются
-                  неотъемлемой частью фестиваля уличных театров.
+                  фестивальных паблик-арт объектов.
                 </p>
                 <p class="routes__type">
                   <span class="routes__type-bold">Вид прогулки:</span>
@@ -653,7 +639,13 @@
             </div>
             <div class="forma__field">
               <label for="tel">Номер телефона</label>
-              <input type="tel" id="tel" name="tel" class="input tel" novalidate />
+              <input
+                type="tel"
+                id="tel"
+                name="tel"
+                class="input tel"
+                novalidate
+              />
               <span class="forma__error"></span>
             </div>
             <div class="forma__field">
@@ -666,7 +658,9 @@
               ></textarea>
               <span class="forma__error"></span>
             </div>
-            <button type="submit" id="forma" class="btn forma__btn">Отправить</button>
+            <button type="submit" id="forma" class="btn forma__btn">
+              Отправить
+            </button>
           </forma>
         </div>
       </section>
@@ -802,17 +796,7 @@
                   d="M10.9381 21.8832C16.6567 19.3917 20.47 17.7491 22.3779 16.9556C27.8255 14.6897 28.9575 14.2961 29.6953 14.2831C29.8576 14.2803 30.2204 14.3205 30.4554 14.5112C30.804 14.7941 30.806 15.4082 30.7673 15.8146C30.4721 18.9164 29.1947 26.4436 28.5449 29.9177C28.2699 31.3877 27.7284 31.8806 27.2043 31.9288C26.0652 32.0337 25.2002 31.176 24.0968 30.4528C22.3704 29.321 21.395 28.6165 19.7191 27.5122C17.7824 26.2359 19.0379 25.5345 20.1416 24.3881C20.4305 24.0881 25.4496 19.5228 25.5467 19.1086C25.5589 19.0568 25.5702 18.8637 25.4555 18.7618C25.3408 18.6599 25.1715 18.6947 25.0494 18.7224C24.8762 18.7617 22.1181 20.5847 16.7751 24.1914C15.9922 24.729 15.2831 24.9909 14.6478 24.9772C13.9474 24.9621 12.6002 24.5812 11.5986 24.2556C10.3701 23.8563 9.39374 23.6451 9.4788 22.967C9.52309 22.6136 10.0095 22.2524 10.9381 21.8832Z"
                   fill="white"
                 />
-              </g>
-              <defs>
-                <clipPath id="clip0_37_356">
-                  <rect
-                    width="45"
-                    height="45"
-                    fill="white"
-                    transform="translate(0 0.0720215)"
-                  />
-                </clipPath>
-              </defs></svg></a>
+              </g></svg></a>
           <a href="#" class="social__item"
             ><svg
               width="45"
@@ -835,16 +819,6 @@
                   fill="white"
                 />
               </g>
-              <defs>
-                <clipPath id="clip0_37_360">
-                  <rect
-                    width="45"
-                    height="45"
-                    fill="white"
-                    transform="translate(0 0.0720215)"
-                  />
-                </clipPath>
-              </defs>
             </svg>
           </a>
           <a href="#" class="social__item"
@@ -879,16 +853,6 @@
                   fill="white"
                 />
               </g>
-              <defs>
-                <clipPath id="clip0_37_363">
-                  <rect
-                    width="45"
-                    height="45"
-                    fill="white"
-                    transform="translate(0 0.0720215)"
-                  />
-                </clipPath>
-              </defs>
             </svg>
           </a>
         </div>
@@ -905,6 +869,8 @@
         </div>
       </div>
     </footer>
+    <script src="./js/gsap.js"></script>
+    <script src="./js/scrollTrigger.js"></script>
     <script src="./js/script.js"></script>
   </body>
 </html>

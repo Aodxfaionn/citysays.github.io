@@ -1,38 +1,48 @@
 // Слайдер
-const btnPrev = document.querySelector(".arrow-left");
-const btnNext = document.querySelector(".arrow-right");
-const slider = document.querySelector(".sliderBlock");
+slidesToggle();
 
-let left = 0;
-let imgWidth = 405;
-
-const slideClick = (side) => {
-  side == "left" ? (left -= imgWidth) : (left += imgWidth);
-  if (left < -1215) left = 0;
-  if (left > 0) left = -1215;
-  slider.style.left = left + "px";
-};
-
-btnPrev.addEventListener("click", () => slideClick("right"));
-btnNext.addEventListener("click", () => slideClick("left"));
+function slidesToggle() {
+  const slides = document.querySelectorAll(".slider__photo");
+  slides.forEach((slide) => {
+    slide.addEventListener("click", () => {
+      for (one of slides) one.classList.remove("active");
+      slide.classList.add("active");
+    });
+  });
+}
 
 // Табы
-let tabNav = document.querySelectorAll(".video__title .title-three");
-let tabContent = document.querySelectorAll(".video__list");
-let tabName;
-tabNav.forEach((item) => item.addEventListener("click", selectTabNav));
-function selectTabNav() {
-  tabNav.forEach((item) => item.classList.remove("active"));
-  this.classList.add("active");
-  tabName = this.dataset.name;
-  selectTabContent(tabName);
+showTabs();
+function showTabs() {
+  let tabNav = document.querySelectorAll(".video__title .title-three");
+  let tabContent = document.querySelectorAll(".video__list");
+  let tabName;
+  tabNav.forEach((item) => item.addEventListener("click", selectTabNav));
+  function selectTabNav() {
+    tabNav.forEach((item) => item.classList.remove("active"));
+    this.classList.add("active");
+    tabName = this.dataset.name;
+    selectTabContent(tabName);
+  }
+  function selectTabContent(selectName) {
+    tabContent.forEach((item) => {
+      item.classList.contains(selectName)
+        ? item.classList.add("active")
+        : item.classList.remove("active");
+    });
+  }
 }
-function selectTabContent(selectName) {
-  tabContent.forEach((item) => {
-    item.classList.contains(selectName)
-      ? item.classList.add("active")
-      : item.classList.remove("active");
-  });
+
+// Бургерное меню
+showmobilemenu();
+function showmobilemenu() {
+const menu = document.querySelector(".mobileMenu");
+const nav = document.querySelector(".nav");
+
+menu.addEventListener("click", function () {
+  menu.classList.toggle("active");
+  nav.classList.toggle("active");
+});
 }
 
 // Маска телефона
@@ -84,11 +94,10 @@ checkForm(form);
 function checkForm(forma) {
   const errorField = forma.querySelectorAll(".forma__error"),
     btn = forma.querySelector("#forma");
-  forma.addEventListener("click", () => checkFormField(forma));
+  checkFormField(forma);
   btn.addEventListener("click", (e) => {
     e.preventDefault();
     checkFullField(forma);
-    console.log(errorField)
     for (error of errorField) {
       if (error.textContent != "") return false;
       else btn.textContent = "Заявка отправлена";
@@ -153,4 +162,3 @@ function checkFullField(forma) {
       input.nextElementSibling.innerHTML = "Поле, обязательное для заполнения";
   }
 }
-
