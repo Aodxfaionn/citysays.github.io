@@ -1,6 +1,5 @@
 // Слайдер
 slidesToggle();
-
 function slidesToggle() {
   const slides = document.querySelectorAll(".slider__photo");
   slides.forEach((slide) => {
@@ -36,13 +35,13 @@ function showTabs() {
 // Бургерное меню
 showmobilemenu();
 function showmobilemenu() {
-const menu = document.querySelector(".mobileMenu");
-const nav = document.querySelector(".nav");
+  const menu = document.querySelector(".mobileMenu");
+  const nav = document.querySelector(".nav");
 
-menu.addEventListener("click", function () {
-  menu.classList.toggle("active");
-  nav.classList.toggle("active");
-});
+  menu.addEventListener("click", function () {
+    menu.classList.toggle("active");
+    nav.classList.toggle("active");
+  });
 }
 
 // Маска телефона
@@ -162,3 +161,375 @@ function checkFullField(forma) {
       input.nextElementSibling.innerHTML = "Поле, обязательное для заполнения";
   }
 }
+
+// Анимация с gsap.js
+gsap.from(".header .nav__item", {
+  opacity: 0,
+  y: -50,
+  stagger: 0.1,
+  ease: "power1.inOut",
+});
+
+gsap.from(".mainScreen__title", {
+  opacity: 0,
+  x: -100,
+  ease: "power1.inOut",
+});
+
+gsap.from(".mainScreen__desc", {
+  opacity: 0,
+  x: -100,
+  delay: 0.3,
+  ease: "power1.inOut",
+});
+
+gsap.from(".mainScreen__img", {
+  opacity: 0,
+  scale: 0.8,
+  delay: 0.1,
+  duration: 1,
+  ease: "power3.out",
+});
+
+// Анимация с gsap.js и ScrollTrigger
+gsap.from("#stroke", {
+  "--dashOffset": 1000,
+  delay: 1,
+  scrollTrigger: {
+    // markers: true,
+    trigger: "#page",
+    start: "-5% top",
+    end: "bottom+=20% bottom",
+    scrub: 1,
+  },
+});
+
+let aboutTitle = new SplitType("#about h2", {
+  types: "lines, words, chars",
+  tagName: "span",
+});
+
+gsap.from(aboutTitle.chars, {
+  scrollTrigger: {
+    trigger: ".mainScreen",
+    start: "center center",
+    // markers: true,
+  },
+  opacity: 0,
+  y: -200,
+  delay: 0.5,
+  stagger: 0.1,
+});
+
+gsap.from("#about .svgContainer", {
+  scrollTrigger: {
+    trigger: ".mainScreen",
+    start: "center center",
+    // markers: true,
+  },
+  opacity: 0,
+  x: 200,
+  delay: 1,
+});
+
+gsap.from(".about__text p", {
+  scrollTrigger: {
+    trigger: ".mainScreen",
+    start: "center center",
+    // markers: true,
+  },
+  opacity: 0,
+  duration: 1,
+  delay: 2,
+});
+
+gsap.from(".about__img", {
+  scrollTrigger: {
+    trigger: ".mainScreen",
+    start: "center center",
+    // markers: true,
+  },
+  opacity: 0,
+  y: -200,
+  delay: 1,
+});
+
+let galleryTitle = new SplitType("#gallery h2", {
+  types: "lines, words, chars",
+  tagName: "span",
+});
+
+gsap.from(galleryTitle.chars, {
+  scrollTrigger: {
+    trigger: "#about",
+    start: "center center",
+    // markers: true,
+  },
+  opacity: 0,
+  y: -200,
+  delay: 0.5,
+  stagger: 0.1,
+});
+
+gsap.from("#gallery .svgContainer", {
+  scrollTrigger: {
+    trigger: "#about",
+    start: "center center",
+    // markers: true,
+  },
+  opacity: 0,
+  x: 200,
+  delay: 1,
+});
+
+gsap.from(".slider__photo", {
+  scrollTrigger: {
+    trigger: "#about",
+    start: "center center",
+    // markers: true,
+  },
+  opacity: 0,
+  x: -300,
+  delay: 1,
+});
+
+let videoTitle = new SplitType("#video h2", {
+  types: "lines, words, chars",
+  tagName: "span",
+});
+
+gsap.from(videoTitle.chars, {
+  scrollTrigger: {
+    trigger: "#gallery",
+    start: "center center",
+    // markers: true,
+  },
+  opacity: 0,
+  y: -200,
+  delay: 0.5,
+  stagger: 0.1,
+});
+
+gsap.from("#video .svgContainer", {
+  scrollTrigger: {
+    trigger: "#gallery",
+    start: "center center",
+    // markers: true,
+  },
+  opacity: 0,
+  x: 200,
+  delay: 1,
+});
+
+gsap.from(".video__title", {
+  scrollTrigger: {
+    trigger: "#gallery",
+    start: "center center",
+    // markers: true,
+  },
+  opacity: 0,
+  delay: 1,
+});
+
+gsap.from(".video__list img", {
+  scrollTrigger: {
+    trigger: "#gallery",
+    start: "center top",
+    // markers: true,
+  },
+  opacity: 0,
+  delay: 1,
+  stagger: 0.1,
+});
+
+let routesTitle = new SplitType("#routes h2", {
+  types: "lines, words, chars",
+  tagName: "span",
+});
+
+gsap.from(routesTitle.chars, {
+  scrollTrigger: {
+    trigger: "#video",
+    start: "center center",
+    // markers: true,
+  },
+  opacity: 0,
+  y: -200,
+  delay: 0.5,
+  stagger: 0.1,
+});
+
+gsap.from("#routes .svgContainer", {
+  scrollTrigger: {
+    trigger: "#video",
+    start: "center center",
+    // markers: true,
+  },
+  opacity: 0,
+  x: 200,
+  delay: 1,
+});
+
+gsap.from(".routes__desc", {
+  scrollTrigger: {
+    trigger: "#video",
+    start: "center center",
+    // markers: true,
+  },
+  opacity: 0,
+  duration: 1,
+  delay: 1,
+});
+
+gsap.from(".route", {
+  scrollTrigger: {
+    trigger: "#video",
+    start: "center center",
+    // markers: true,
+  },
+  opacity: 0,
+  x: -300,
+  delay: 1,
+  stagger: 0.1,
+});
+
+let formaTitle = new SplitType("#forma h2", {
+  types: "lines, words, chars",
+  tagName: "span",
+});
+
+gsap.from(formaTitle.chars, {
+  scrollTrigger: {
+    trigger: "#routes",
+    start: "center center",
+    // markers: true,
+  },
+  opacity: 0,
+  y: -200,
+  delay: 0.5,
+  stagger: 0.1,
+});
+
+gsap.from("#forma .svgContainer", {
+  scrollTrigger: {
+    trigger: "#routes",
+    start: "center center",
+    // markers: true,
+  },
+  opacity: 0,
+  x: 200,
+  delay: 1,
+});
+
+gsap.from(".forma__img", {
+  scrollTrigger: {
+    trigger: "#routes",
+    start: "center center",
+    // markers: true,
+  },
+  opacity: 0,
+  scale: 0.8,
+  delay: 0.3,
+});
+
+gsap.from(".forma", {
+  scrollTrigger: {
+    trigger: "#routes",
+    start: "bottom center",
+    end: "bottom top",
+    // markers: true,
+  },
+  opacity: 0,
+  x: -300,
+  delay: 0.5,
+});
+
+gsap.from(".footer__nav .nav__item", {
+  scrollTrigger: {
+    trigger: ".footer",
+    start: "top bottom",
+    // markers: true,
+  },
+  y: -50,
+  stagger: 0.1,
+  delay: 1,
+});
+
+gsap.from(".footer__svg-left", {
+  scrollTrigger: {
+    trigger: ".footer",
+    start: "top bottom",
+    // markers: true,
+  },
+  x: -50,
+  duration: 1,
+});
+
+gsap.from(".footer__svg-right", {
+  scrollTrigger: {
+    trigger: ".footer",
+    start: "top bottom",
+    // markers: true,
+  },
+  x: 300,
+  duration: 1,
+});
+
+gsap.from(".footer__svg-top", {
+  scrollTrigger: {
+    trigger: ".footer",
+    start: "top bottom",
+    // markers: true,
+  },
+  x: 300,
+  duration: 1,
+});
+
+gsap.from(".footer__svg-center", {
+  scrollTrigger: {
+    trigger: ".footer",
+    start: "top bottom",
+    // markers: true,
+  },
+  y: 300,
+  duration: 1,
+});
+
+gsap.from(".social", {
+  scrollTrigger: {
+    trigger: ".footer",
+    start: "top bottom",
+    // markers: true,
+  },
+  opacity: 0,
+});
+
+gsap.from(".footer__copy", {
+  scrollTrigger: {
+    trigger: ".footer",
+    start: "top bottom",
+    // markers: true,
+  },
+  opacity: 0,
+});
+
+
+gsap.from(".footer__info", {
+  scrollTrigger: {
+    trigger: ".footer",
+    start: "top bottom",
+    // markers: true,
+  },
+  opacity: 0,
+});
+
+gsap.from(".title-big", {
+  scrollTrigger: {
+    trigger: ".title-big",
+    start: "-=700px top",
+    end: "-=200px top",
+    // markers: true,
+    scrub: true,
+  },
+  x: -300,
+});
