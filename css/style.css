@@ -50,6 +50,7 @@ body {
   font-style: normal;
   line-height: 190%;
   font-feature-settings: "clig" off, "liga" off;
+  overflow-x: hidden;
 }
 
 li {
@@ -638,7 +639,7 @@ section.videoContainer {
 
 .mobileMenu {
   position: absolute;
-  top: 0;
+  top: 35px;
   right: 0;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
